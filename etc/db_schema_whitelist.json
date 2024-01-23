@@ -1,0 +1,26 @@
+{
+    "logger": {
+        "column": {
+            "item_id": true,
+            "message": true,
+            "file": true,
+            "creation_time": true,
+            "status": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "mappingTable": {
+        "column": {
+            "item_id": true,
+            "file": true,
+            "magento": true,
+            "xml_value": true,
+            "store_code": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

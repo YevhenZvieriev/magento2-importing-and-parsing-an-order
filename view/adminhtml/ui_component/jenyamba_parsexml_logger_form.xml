@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <!-- form arguments -->
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">
+                jenyamba_parsexml_logger_form.jenyamba_parsexml_logger_form_data_source
+            </item>
+        </item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <!-- form settings -->
+    <settings>
+        <buttons>
+            <button name="save" class="Jenyamba\ParseXml\Block\Adminhtml\Logger\Edit\SaveButton"/>
+            <button name="back" class="Jenyamba\ParseXml\Block\Adminhtml\Logger\Edit\BackButton"/>
+        </buttons>
+        <namespace>jenyamba_parsexml_logger_form</namespace>
+        <dataScope>data</dataScope>
+        <deps>
+            <dep>jenyamba_parsexml_logger_form.jenyamba_parsexml_logger_form_data_source</dep>
+        </deps>
+    </settings>
+    <!-- form data source -->
+    <dataSource name="jenyamba_parsexml_logger_form_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <settings>
+            <submitUrl path="jenyamba_parsexml/logger/save"/>
+        </settings>
+        <dataProvider class="Jenyamba\ParseXml\Model\Logger\DataProvider" name="jenyamba_parsexml_logger_form_data_source">
+            <settings>
+                <requestFieldName>item_id</requestFieldName>
+                <primaryFieldName>item_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <!-- fieldset(s) -->
+    <fieldset name="general">
+        <settings>
+            <label/>
+        </settings>
+        <field name="item_id" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="disabled" xsi:type="boolean">true</item>
+                    <item name="source" xsi:type="string">item</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Item id</label>
+                <dataScope>item_id</dataScope>
+            </settings>
+        </field>
+        <field name="creation time" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">item</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <label translate="true">Creation time</label>
+                <dataScope>creation_time</dataScope>
+            </settings>
+        </field>
+        <field name="message" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="formElement" xsi:type="string">textarea</item>
+                    <item name="cols" xsi:type="number">15</item>
+                    <item name="rows" xsi:type="number">5</item>
+                    <item name="source" xsi:type="string">item</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>textarea</dataType>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <label translate="true">Message</label>
+                <dataScope>message</dataScope>
+            </settings>
+        </field>
+        <field name="status" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">item</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Status</label>
+                <dataScope>status</dataScope>
+            </settings>
+        </field>
+        <field name="file" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">item</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">File</label>
+                <dataScope>file</dataScope>
+            </settings>
+        </field>
+    </fieldset>
+    <!-- fields(s) -->
+</form>

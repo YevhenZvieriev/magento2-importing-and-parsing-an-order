@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="logger" resource="default" engine="innodb" comment="Logger Info Table">
+        <column xsi:type="smallint" name="item_id" unsigned="false" nullable="false" identity="true"
+                comment="Item ID"/>
+        <column xsi:type="varchar" name="message" nullable="true" comment="Logger Item Message"/>
+        <column xsi:type="varchar" name="file" nullable="true" comment="Logger Item Message"/>
+        <column xsi:type="timestamp" name="creation_time" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Logger Item Creation Time"/>
+        <column xsi:type="varchar" name="status" nullable="true" comment="Logger Item Status "/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="item_id"/>
+        </constraint>
+    </table>
+    <table name="store_mapping" resource="default" engine="innodb" comment="Logger Info Table">
+        <column xsi:type="smallint" name="item_id" unsigned="false" nullable="false" identity="true"
+                comment="Item ID"/>
+        <column xsi:type="varchar" name="xml_value" nullable="true" comment="Value store from xml file"/>
+        <column xsi:type="varchar" name="store_code" nullable="true" comment="Value store for magento"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="item_id"/>
+        </constraint>
+    </table>
+</schema>

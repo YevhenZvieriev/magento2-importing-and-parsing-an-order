@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Jenyamba_ParseXml::content_elements"
+             title="Jenyamba"
+             translate="title"
+             module="Jenyamba_ParseXml"
+             sortOrder="10"
+             parent="Magento_Backend::content"
+             resource="Magento_Backend::admin"/>
+        <add id="Jenyamba_ParseXml::item"
+             title="Logger Grid"
+             translate="title"
+             module="Jenyamba_ParseXml"
+             sortOrder="0"
+             parent="Jenyamba_ParseXml::content_elements"
+             action="jenyamba_parsexml/logger"
+             resource="Magento_Backend::admin"/>
+    </menu>
+</config>

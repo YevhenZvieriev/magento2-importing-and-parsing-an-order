@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Jenyamba\ParseXml\Api\Data\LogsInterface" type="Jenyamba\ParseXml\Model\Logger"/>
+    <preference for="Jenyamba\ParseXml\Api\LogsRepositoryInterface" type="Jenyamba\ParseXml\Model\LogsRepository"/>
+    <preference for="Jenyamba\ParseXml\Api\StoreMappingRepositoryInterface" type="Jenyamba\ParseXml\Model\StoreMappingRepository"/>
+    <type name="Jenyamba\ParseXml\Logger\Handler">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+    <type name="Jenyamba\ParseXml\Logger\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">Logger</argument>
+            <argument name="handlers" xsi:type="array">
+                <item name="system" xsi:type="object">Jenyamba\ParseXml\Logger\Handler</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="jenyamba_parsexml_logger_listing_data_source" xsi:type="string">
+                    Jenyamba\ParseXml\Model\ResourceModel\Logger\Grid\Collection
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Jenyamba\ParseXml\Model\ResourceModel\Logger\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">logger</argument>
+            <argument name="eventPrefix" xsi:type="string">jenyamba_parsexml_logger_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">logger_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Jenyamba\ParseXml\Model\ResourceModel\Logger</argument>
+        </arguments>
+    </type>
+</config>
